@@ -3,9 +3,10 @@ import React from 'react'
 function About() {
   return (
  
-    <div className='flex flex-col align-top gap-5 m-10 w-1/2'>
-        <h1 className='text-4xl font-extrabold'>Uk Grid Mix</h1>
-        <p className='font-medium'>A basic breakdown of the current fuel mix used for generation by the UK National Grid.  Use the drop down to select the mix for a specific region.</p>
+    <div className='flex flex-col gap-5 m-10 w-3/4'>
+        <h1 className='text-4xl font-extrabold'>UK Grid Generation Mix</h1>
+        <p className='font-medium'>A basic breakdown of the current fuel mix used for generating electricity supplied by the UK National Grid.</p>
+        <p className='font-medium'> Use the drop down to view the generation mix for a specific region.</p>
         <p className='font-medium'>Data Sources: </p>
         <ul class="flex flex-col list-disc mx-4">
             <li class="mx-1"><a className='font-medium text-blue-600 dark:text-blue-500 hover:underline' href='https://carbonintensity.org.uk/'>National Grid ESO Carbon Intensity API</a></li>

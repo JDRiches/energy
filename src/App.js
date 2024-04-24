@@ -4,12 +4,12 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="h-screen flex flex-col items-center justify-center bg-slate-200">
-      <div className="flex flex-row items-start justify-center m-auto w-auto gap-1">
+    <div className=" md:h-screen flex flex-col md:items-center md:justify-center bg-slate-200 p-5">
+      <div className="grid gap-5 place-items-center mx-auto md:grid-cols-2 sm:grid-cols-1 md:h-screen">
         <About />
         <Dashboard />
       </div>
-      <div className="flex flex-row">
+      <div className="flex flex-row items-center justify-center">
         <Footer />
       </div>
 

@@ -63,7 +63,7 @@ function Dashboard() {
     }, [region])
 
   return (
-    <div className='p-3 flex flex-col gap-5 m-10 w-1/2 bg-slate-50 rounded-md'>
+    <div className='p-3  flex flex-col gap-5 w-full my-10 bg-slate-50 rounded-md shadow-sm'>
         <RegionSelector setRegion={SetRegion}/>
         <div>
             {mix.sort((a,b) => b.perc - a.perc)
