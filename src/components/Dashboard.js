@@ -1,5 +1,6 @@
 import React from 'react'
 import FuelRow from './FuelRow'
+import RegionSelector from './RegionSelector'
 
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -34,18 +35,36 @@ function Dashboard() {
     const [mix, setMix] = useState([])
     const [lastUpdate, setLastUpdate] = useState('laoding...')
 
-useEffect(() => {
-    axios.get("https://api.carbonintensity.org.uk/generation")
-    .then(res => {
-        setMix(res.data.data.generationmix)
-        setLastUpdate(res.data.data.from)
-    })
+    const [region, SetRegion] = useState("0")
 
+    useEffect(() => {
+
+        if(region == "0"){
+            axios.get("https://api.carbonintensity.org.uk/generation")
+            .then(res => {
+                setMix(res.data.data.generationmix)
+                setLastUpdate(res.data.data.from)
+                //console.log(res.data.data.generationmix)
+            })
+        }
+        else{
+            axios.get("https://api.carbonintensity.org.uk/regional/regionid/" + region)
+            .then(res => {
+                console.log(res.data.data[0])
+                setMix(res.data.data[0].data[0].generationmix)
+                setLastUpdate(res.data.data[0].data[0].from)
+               // console.log(res.data.data.data.generationmix)
+            })
+        }
+
+
+        console.log(region)
     
-}, [])
+    }, [region])
 
   return (
     <div className='p-3 flex flex-col gap-5 m-10 w-1/2 bg-slate-50 rounded-md'>
+        <RegionSelector setRegion={SetRegion}/>
         <div>
             {mix.sort((a,b) => b.perc - a.perc)
             .map((m) => {

@@ -3,7 +3,7 @@ import React from 'react'
 function About() {
   return (
  
-    <div className='flex flex-col align-top gap-5 my-10 w-1/2'>
+    <div className='flex flex-col align-top gap-5 m-10 w-1/2'>
         <h1 className='text-4xl font-extrabold'>Uk Grid Mix</h1>
         <p className='font-medium'>A basic breakdown of the current fuel mix used for generation by the UK National Grid.</p>
         <p className='font-medium'>Data Sources: </p>
