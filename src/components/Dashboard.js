@@ -16,8 +16,11 @@ function cleanDate(dateStr){
     var year = date.getFullYear();
     var month = date.getMonth()+1;
 
+    var hour = String(date.getHours()).padStart(2, '0');
+    var minutes = String(date.getMinutes()).padStart(2, '0');
+
   
-    var formatted = day+"/"+month+"/"+year;
+    var formatted = day+"/"+month+"/"+year+ " "+hour+":"+minutes;
 
 
     return formatted
@@ -42,14 +45,15 @@ useEffect(() => {
 }, [])
 
   return (
-    <div className='p-3 w-auto m-auto border-solid border-2 flex flex-col gap-5'>
+    <div className='p-3 flex flex-col gap-5 m-10 w-1/2 bg-slate-50 rounded-md'>
         <div>
-            {mix.map((m) => {
+            {mix.sort((a,b) => b.perc - a.perc)
+            .map((m) => {
                 return <FuelRow key={m.fuel} mix={capitalizeFirstLetter(m.fuel)} percent={m.perc}/>
             })}
         </div>
-        <div className='text-slate-400'>
-        Last Updated: {cleanDate(lastUpdate)}
+        <div className='text-slate-400 text-center'>
+            Last Updated: {cleanDate(lastUpdate)}
         </div>
     </div>
   )
